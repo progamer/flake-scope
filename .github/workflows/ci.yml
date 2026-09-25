@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter demo exec playwright install --with-deps --only-shell chromium
+      # The demo is racy on purpose; flaky tests still pass, so this job stays green.
+      - run: pnpm demo
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: flake-report
+          path: |
+            examples/demo/test-results/flake-report.json
+            examples/demo/test-results/**/trace.zip
+          retention-days: 14
