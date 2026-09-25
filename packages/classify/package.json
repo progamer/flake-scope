@@ -1,8 +1,28 @@
 {
   "name": "@flakescope/classify",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Deterministic classification of Playwright flaky and failing tests from a flake-report.json.",
   "license": "MIT",
+  "author": "Issa Khalil",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/progamer/flake-scope.git",
+    "directory": "packages/classify"
+  },
+  "homepage": "https://github.com/progamer/flake-scope#readme",
+  "bugs": {
+    "url": "https://github.com/progamer/flake-scope/issues"
+  },
+  "keywords": [
+    "playwright",
+    "flaky-tests",
+    "flaky",
+    "test-analysis",
+    "testing",
+    "ci",
+    "github-actions",
+    "e2e"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,10 +33,15 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

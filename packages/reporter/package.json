@@ -1,8 +1,30 @@
 {
   "name": "@flakescope/reporter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Playwright reporter that records the evidence needed to explain why a test is flaky.",
   "license": "MIT",
+  "author": "Issa Khalil",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/progamer/flake-scope.git",
+    "directory": "packages/reporter"
+  },
+  "homepage": "https://github.com/progamer/flake-scope#readme",
+  "bugs": {
+    "url": "https://github.com/progamer/flake-scope/issues"
+  },
+  "keywords": [
+    "playwright",
+    "playwright-reporter",
+    "reporter",
+    "test-reporter",
+    "flaky-tests",
+    "flaky",
+    "e2e",
+    "testing",
+    "ci",
+    "github-actions"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,10 +35,15 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
