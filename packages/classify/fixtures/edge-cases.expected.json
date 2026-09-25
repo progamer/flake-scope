@@ -1,0 +1,14 @@
+{
+  "regression with different errors": { "verdict": "likely-regression", "confidence": "low" },
+  "regression without retries": { "verdict": "likely-regression", "confidence": "low" },
+  "browser crash then pass": { "verdict": "env-resource", "confidence": "high" },
+  "connection refused then pass": { "verdict": "env-resource", "confidence": "high" },
+  "out of memory then pass": { "verdict": "env-resource", "confidence": "high" },
+  "slow first attempt without timeout": { "verdict": "known-intermittent", "confidence": "low" },
+  "storageState-only race": { "verdict": "shared-state-race", "confidence": "medium" },
+  "timeout during explicit race": { "verdict": "shared-state-race", "confidence": "high" },
+  "race weakened by passing overlap": { "verdict": "shared-state-race", "confidence": "medium" },
+  "consistent timeout on every attempt": { "verdict": "likely-regression", "confidence": "medium" },
+  "connection refused on every attempt": { "verdict": "env-resource", "confidence": "high" },
+  "failed alongside others, passed alone": { "verdict": "known-intermittent", "confidence": "low" }
+}

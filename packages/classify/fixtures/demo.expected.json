@@ -1,0 +1,7 @@
+{
+  "dashboard loads": { "verdict": "env-resource", "confidence": "high" },
+  "search results are sorted": { "verdict": "known-intermittent", "confidence": "low" },
+  "renames the profile to Alice A": { "verdict": "shared-state-race", "confidence": "high" },
+  "renames the profile to Alice B": { "verdict": "shared-state-race", "confidence": "high" },
+  "cart total includes every item": { "verdict": "likely-regression", "confidence": "high" }
+}

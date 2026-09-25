@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "name": "@flakescope/reporter",
+    "version": "0.0.0"
+  },
+  "run": {
+    "startTime": "2026-09-25T15:06:38.102Z",
+    "durationMs": 16954,
+    "status": "failed",
+    "playwrightVersion": "1.63.0",
+    "workers": 4,
+    "fullyParallel": false,
+    "shard": null,
+    "projects": [
+      {
+        "name": "setup",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": null
+      },
+      {
+        "name": "chromium",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": null
+      },
+      {
+        "name": "chromium-alice",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": ".auth/alice.json"
+      }
+    ],
+    "errors": []
+  },
+  "git": {
+    "sha": "156a938bbbbe604c7da03aa4341ed12bf56e1107",
+    "headSha": null,
+    "branch": "main",
+    "pullRequest": null
+  },
+  "ci": null,
+  "host": {
+    "platform": "win32",
+    "arch": "x64",
+    "cpus": 14,
+    "nodeVersion": "v24.18.0"
+  },
+  "summary": {
+    "total": 8,
+    "expected": 4,
+    "unexpected": 1,
+    "flaky": 3,
+    "skipped": 0,
+    "reported": 4
+  },
+  "tests": [
+    {
+      "id": "25ab1bfc84c57e3e3a45-866da5285e8be50342e1",
+      "title": "cart total includes every item",
+      "titlePath": [
+        "cart total includes every item"
+      ],
+      "file": "tests/checkout.spec.ts",
+      "line": 5,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "unexpected",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 1,
+          "parallelIndex": 1,
+          "startTime": "2026-09-25T15:06:38.801Z",
+          "durationMs": 65,
+          "errors": [
+            {
+              "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }",
+              "stack": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }\n    at <root>\\tests\\checkout.spec.ts:7:28",
+              "location": {
+                "file": "tests/checkout.spec.ts",
+                "line": 7,
+                "column": 28
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "17e3fe6f4d9d8bd79c6b-d211cf17255bf7befba1",
+              "title": "sign in as alice",
+              "file": "tests/auth.setup.ts",
+              "project": "setup",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 0,
+              "parallelIndex": 0,
+              "overlapMs": 65,
+              "sharedResources": []
+            },
+            {
+              "testId": "d318381359a9b96acb1e-73dc57198c9f63c46b60",
+              "title": "home page renders",
+              "file": "tests/home.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 3,
+              "parallelIndex": 3,
+              "overlapMs": 65,
+              "sharedResources": []
+            },
+            {
+              "testId": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+              "title": "dashboard loads",
+              "file": "tests/dashboard.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "timedOut",
+              "workerIndex": 2,
+              "parallelIndex": 2,
+              "overlapMs": 34,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "failed",
+          "workerIndex": 4,
+          "parallelIndex": 1,
+          "startTime": "2026-09-25T15:06:39.508Z",
+          "durationMs": 55,
+          "errors": [
+            {
+              "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }",
+              "stack": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }\n    at <root>\\tests\\checkout.spec.ts:7:28",
+              "location": {
+                "file": "tests/checkout.spec.ts",
+                "line": 7,
+                "column": 28
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium-retry1/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium-retry1/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+              "title": "dashboard loads",
+              "file": "tests/dashboard.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "timedOut",
+              "workerIndex": 2,
+              "parallelIndex": 2,
+              "overlapMs": 55,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 2,
+          "status": "failed",
+          "workerIndex": 6,
+          "parallelIndex": 1,
+          "startTime": "2026-09-25T15:06:39.998Z",
+          "durationMs": 50,
+          "errors": [
+            {
+              "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }",
+              "stack": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"totalCents\": 2749,\n+   \"totalCents\": 2499,\n  }\n    at <root>\\tests\\checkout.spec.ts:7:28",
+              "location": {
+                "file": "tests/checkout.spec.ts",
+                "line": 7,
+                "column": 28
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium-retry2/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/checkout-cart-total-includes-every-item-chromium-retry2/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+              "title": "dashboard loads",
+              "file": "tests/dashboard.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "timedOut",
+              "workerIndex": 2,
+              "parallelIndex": 2,
+              "overlapMs": 50,
+              "sharedResources": []
+            },
+            {
+              "testId": "a088064de9fe351eef5f-c6de5115870c03e61838",
+              "title": "search results are sorted",
+              "file": "tests/search.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "failed",
+              "workerIndex": 5,
+              "parallelIndex": 0,
+              "overlapMs": 50,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+      "title": "dashboard loads",
+      "titlePath": [
+        "dashboard loads"
+      ],
+      "file": "tests/dashboard.spec.ts",
+      "line": 5,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "timedOut",
+          "workerIndex": 2,
+          "parallelIndex": 2,
+          "startTime": "2026-09-25T15:06:38.832Z",
+          "durationMs": 8251,
+          "errors": [
+            {
+              "message": "Test timeout of 5000ms exceeded.",
+              "stack": "Test timeout of 5000ms exceeded.",
+              "location": null
+            }
+          ],
+          "attachments": [
+            {
+              "name": "screenshot",
+              "contentType": "image/png",
+              "path": "test-results/dashboard-dashboard-loads-chromium/test-failed-1.png"
+            },
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/dashboard-dashboard-loads-chromium/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/dashboard-dashboard-loads-chromium/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "a088064de9fe351eef5f-c6de5115870c03e61838",
+              "title": "search results are sorted",
+              "file": "tests/search.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "failed",
+              "workerIndex": 5,
+              "parallelIndex": 0,
+              "overlapMs": 2196,
+              "sharedResources": []
+            },
+            {
+              "testId": "17e3fe6f4d9d8bd79c6b-d211cf17255bf7befba1",
+              "title": "sign in as alice",
+              "file": "tests/auth.setup.ts",
+              "project": "setup",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 0,
+              "parallelIndex": 0,
+              "overlapMs": 357,
+              "sharedResources": []
+            },
+            {
+              "testId": "d318381359a9b96acb1e-73dc57198c9f63c46b60",
+              "title": "home page renders",
+              "file": "tests/home.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 3,
+              "parallelIndex": 3,
+              "overlapMs": 246,
+              "sharedResources": []
+            },
+            {
+              "testId": "d318381359a9b96acb1e-a0d66ca2b051bd6e7021",
+              "title": "links to the profile",
+              "file": "tests/home.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 3,
+              "parallelIndex": 3,
+              "overlapMs": 182,
+              "sharedResources": []
+            },
+            {
+              "testId": "a088064de9fe351eef5f-c6de5115870c03e61838",
+              "title": "search results are sorted",
+              "file": "tests/search.spec.ts",
+              "project": "chromium",
+              "retry": 1,
+              "status": "passed",
+              "workerIndex": 7,
+              "parallelIndex": 0,
+              "overlapMs": 162,
+              "sharedResources": []
+            },
+            {
+              "testId": "25ab1bfc84c57e3e3a45-866da5285e8be50342e1",
+              "title": "cart total includes every item",
+              "file": "tests/checkout.spec.ts",
+              "project": "chromium",
+              "retry": 1,
+              "status": "failed",
+              "workerIndex": 4,
+              "parallelIndex": 1,
+              "overlapMs": 55,
+              "sharedResources": []
+            },
+            {
+              "testId": "25ab1bfc84c57e3e3a45-866da5285e8be50342e1",
+              "title": "cart total includes every item",
+              "file": "tests/checkout.spec.ts",
+              "project": "chromium",
+              "retry": 2,
+              "status": "failed",
+              "workerIndex": 6,
+              "parallelIndex": 1,
+              "overlapMs": 50,
+              "sharedResources": []
+            },
+            {
+              "testId": "25ab1bfc84c57e3e3a45-866da5285e8be50342e1",
+              "title": "cart total includes every item",
+              "file": "tests/checkout.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "failed",
+              "workerIndex": 1,
+              "parallelIndex": 1,
+              "overlapMs": 34,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 8,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T15:06:47.631Z",
+          "durationMs": 231,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "a088064de9fe351eef5f-c6de5115870c03e61838",
+      "title": "search results are sorted",
+      "titlePath": [
+        "search results are sorted"
+      ],
+      "file": "tests/search.spec.ts",
+      "line": 5,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 5,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T15:06:39.783Z",
+          "durationMs": 2196,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('results').locator('li')\nTimeout: 2000ms\n- Expected  - 2\n+ Received  + 2\n\n  Array [\n-   \"apple\",\n-   \"banana\",\n    \"cherry\",\n+   \"banana\",\n+   \"apple\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('results').locator('li') with timeout 2000ms\n  - waiting for getByTestId('results').locator('li')\n    19 × locator resolved to 3 elements\n",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('results').locator('li')\nTimeout: 2000ms\n- Expected  - 2\n+ Received  + 2\n\n  Array [\n-   \"apple\",\n-   \"banana\",\n    \"cherry\",\n+   \"banana\",\n+   \"apple\",\n  ]\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('results').locator('li') with timeout 2000ms\n  - waiting for getByTestId('results').locator('li')\n    19 × locator resolved to 3 elements\n\n    at <root>\\tests\\search.spec.ts:7:59",
+              "location": {
+                "file": "tests/search.spec.ts",
+                "line": 7,
+                "column": 59
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "name": "screenshot",
+              "contentType": "image/png",
+              "path": "test-results/search-search-results-are-sorted-chromium/test-failed-1.png"
+            },
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/search-search-results-are-sorted-chromium/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/search-search-results-are-sorted-chromium/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+              "title": "dashboard loads",
+              "file": "tests/dashboard.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "timedOut",
+              "workerIndex": 2,
+              "parallelIndex": 2,
+              "overlapMs": 2196,
+              "sharedResources": []
+            },
+            {
+              "testId": "25ab1bfc84c57e3e3a45-866da5285e8be50342e1",
+              "title": "cart total includes every item",
+              "file": "tests/checkout.spec.ts",
+              "project": "chromium",
+              "retry": 2,
+              "status": "failed",
+              "workerIndex": 6,
+              "parallelIndex": 1,
+              "overlapMs": 50,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 7,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T15:06:42.470Z",
+          "durationMs": 162,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "90cda532ab82d274b30b-3997c63ad7760c07b694",
+              "title": "dashboard loads",
+              "file": "tests/dashboard.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "timedOut",
+              "workerIndex": 2,
+              "parallelIndex": 2,
+              "overlapMs": 162,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "5b28ccccd8f701756bc6-02e3e226c867821a69e9",
+      "title": "renames the profile to Alice B",
+      "titlePath": [
+        "renames the profile to Alice B"
+      ],
+      "file": "tests/profile-b.spec.ts",
+      "line": 6,
+      "column": 1,
+      "project": "chromium-alice",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [
+        "account:alice",
+        "storageState:.auth/alice.json"
+      ],
+      "annotations": [
+        {
+          "type": "flakescope:resource",
+          "description": "account:alice"
+        }
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 10,
+          "parallelIndex": 1,
+          "startTime": "2026-09-25T15:06:48.367Z",
+          "durationMs": 3926,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('display-name')\nExpected: \"Alice B\"\nReceived: \"Alice A\"\nTimeout:  2000ms\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('display-name') with timeout 2000ms\n  - waiting for getByTestId('display-name')\n    19 × locator resolved to <span data-testid=\"display-name\">Alice A</span>\n       - unexpected value \"Alice A\"\n",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('display-name')\nExpected: \"Alice B\"\nReceived: \"Alice A\"\nTimeout:  2000ms\n\nCall log:\n  - Expect \"toHaveText\" getByTestId('display-name') with timeout 2000ms\n  - waiting for getByTestId('display-name')\n    19 × locator resolved to <span data-testid=\"display-name\">Alice A</span>\n       - unexpected value \"Alice A\"\n\n    at <root>\\tests\\profile-b.spec.ts:18:50",
+              "location": {
+                "file": "tests/profile-b.spec.ts",
+                "line": 18,
+                "column": 50
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "name": "screenshot",
+              "contentType": "image/png",
+              "path": "test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/test-failed-1.png"
+            },
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/trace.zip"
+            }
+          ],
+          "concurrent": [
+            {
+              "testId": "afb2511efaba28481807-6105c2c798e00d59c954",
+              "title": "renames the profile to Alice A",
+              "file": "tests/profile-a.spec.ts",
+              "project": "chromium-alice",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 0,
+              "overlapMs": 1908,
+              "sharedResources": [
+                "account:alice",
+                "storageState:.auth/alice.json"
+              ]
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 11,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T15:06:52.784Z",
+          "durationMs": 1823,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,891 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "name": "@flakescope/reporter",
+    "version": "0.0.0"
+  },
+  "run": {
+    "startTime": "2026-09-25T15:02:27.905Z",
+    "durationMs": 21848,
+    "status": "passed",
+    "playwrightVersion": "1.63.0",
+    "workers": 4,
+    "fullyParallel": false,
+    "shard": null,
+    "projects": [
+      {
+        "name": "setup",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": null
+      },
+      {
+        "name": "chromium",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": null
+      },
+      {
+        "name": "chromium-alice",
+        "retries": 2,
+        "repeatEach": 1,
+        "storageState": ".auth/alice.json"
+      }
+    ],
+    "errors": []
+  },
+  "git": {
+    "sha": "ec98d6baa502ad6da3d18beb62a0ec3965d1fa15",
+    "headSha": null,
+    "branch": "main",
+    "pullRequest": null
+  },
+  "ci": {
+    "provider": "github-actions",
+    "runnerOs": "Linux",
+    "runnerArch": "X64",
+    "repository": "progamer/flake-scope",
+    "serverUrl": "https://github.com",
+    "workflow": "CI",
+    "jobId": "demo",
+    "runId": "36151443371",
+    "runAttempt": "1"
+  },
+  "host": {
+    "platform": "linux",
+    "arch": "x64",
+    "cpus": 2,
+    "nodeVersion": "v22.23.2"
+  },
+  "summary": {
+    "total": 20,
+    "expected": 8,
+    "unexpected": 4,
+    "flaky": 8,
+    "skipped": 0,
+    "reported": 12
+  },
+  "tests": [
+    {
+      "id": "edge-1",
+      "title": "regression with different errors",
+      "titlePath": [
+        "regression with different errors"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "unexpected",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Total $27.49\"\nReceived: \"Total $24.99\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Total $27.49\"\nReceived: \"Total $24.99\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "failed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: locator.click: Element is not attached to the DOM",
+              "stack": "Error: locator.click: Element is not attached to the DOM\n    at <root>/tests/edge.spec.ts:14:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 14,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 2,
+          "status": "failed",
+          "workerIndex": 2,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:20.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Paid\"\nReceived: \"Pending\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Paid\"\nReceived: \"Pending\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:18:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 18,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-2",
+      "title": "regression without retries",
+      "titlePath": [
+        "regression without retries"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "unexpected",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Total $27.49\"\nReceived: \"Total $24.99\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Total $27.49\"\nReceived: \"Total $24.99\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-3",
+      "title": "browser crash then pass",
+      "titlePath": [
+        "browser crash then pass"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: page.goto: Target page, context or browser has been closed",
+              "stack": "Error: page.goto: Target page, context or browser has been closed\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 900,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-4",
+      "title": "connection refused then pass",
+      "titlePath": [
+        "connection refused then pass"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4173",
+              "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4173\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-5",
+      "title": "out of memory then pass",
+      "titlePath": [
+        "out of memory then pass"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory",
+              "stack": "FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-6",
+      "title": "slow first attempt without timeout",
+      "titlePath": [
+        "slow first attempt without timeout"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 9000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Saved\"\nReceived: \"Saving...\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Saved\"\nReceived: \"Saving...\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 300,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-7",
+      "title": "storageState-only race",
+      "titlePath": [
+        "storageState-only race"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [
+        "storageState:.auth/user.json"
+      ],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Bob\"\nReceived: \"Carol\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Bob\"\nReceived: \"Carol\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "peer-edits-the-shared-user",
+              "title": "edits the shared user",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": [
+                "storageState:.auth/user.json"
+              ]
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-8",
+      "title": "timeout during explicit race",
+      "titlePath": [
+        "timeout during explicit race"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [
+        "account:bob"
+      ],
+      "annotations": [
+        {
+          "type": "flakescope:resource",
+          "description": "account:bob"
+        }
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "timedOut",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 5200,
+          "errors": [
+            {
+              "message": "Test timeout of 5000ms exceeded.",
+              "stack": "Test timeout of 5000ms exceeded.\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "peer-deletes-bob-s-orders",
+              "title": "deletes bob's orders",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": [
+                "account:bob"
+              ]
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 4000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-9",
+      "title": "race weakened by passing overlap",
+      "titlePath": [
+        "race weakened by passing overlap"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [
+        "account:dana"
+      ],
+      "annotations": [
+        {
+          "type": "flakescope:resource",
+          "description": "account:dana"
+        }
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"3 items\"\nReceived: \"0 items\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"3 items\"\nReceived: \"0 items\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "peer-empties-the-cart",
+              "title": "empties the cart",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": [
+                "account:dana"
+              ]
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "peer-adds-to-the-cart",
+              "title": "adds to the cart",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": [
+                "account:dana"
+              ]
+            }
+          ],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-10",
+      "title": "consistent timeout on every attempt",
+      "titlePath": [
+        "consistent timeout on every attempt"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "unexpected",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "timedOut",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 5100,
+          "errors": [
+            {
+              "message": "Test timeout of 5000ms exceeded.",
+              "stack": "Test timeout of 5000ms exceeded.\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "timedOut",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 5100,
+          "errors": [
+            {
+              "message": "Test timeout of 5000ms exceeded.",
+              "stack": "Test timeout of 5000ms exceeded.\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 2,
+          "status": "timedOut",
+          "workerIndex": 2,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:20.000Z",
+          "durationMs": 5100,
+          "errors": [
+            {
+              "message": "Test timeout of 5000ms exceeded.",
+              "stack": "Test timeout of 5000ms exceeded.\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-11",
+      "title": "connection refused on every attempt",
+      "titlePath": [
+        "connection refused on every attempt"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "unexpected",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: connect ECONNREFUSED 127.0.0.1:5432",
+              "stack": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "failed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: connect ECONNREFUSED 127.0.0.1:5432",
+              "stack": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 2,
+          "status": "failed",
+          "workerIndex": 2,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:20.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: connect ECONNREFUSED 127.0.0.1:5432",
+              "stack": "Error: connect ECONNREFUSED 127.0.0.1:5432\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    },
+    {
+      "id": "edge-12",
+      "title": "failed alongside others, passed alone",
+      "titlePath": [
+        "failed alongside others, passed alone"
+      ],
+      "file": "tests/edge.spec.ts",
+      "line": 10,
+      "column": 1,
+      "project": "chromium",
+      "tags": [],
+      "outcome": "flaky",
+      "expectedStatus": "passed",
+      "retries": 2,
+      "resources": [],
+      "annotations": [],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "workerIndex": 0,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:00.000Z",
+          "durationMs": 1000,
+          "errors": [
+            {
+              "message": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Welcome\"\nReceived: \"Loading\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved",
+              "stack": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"Welcome\"\nReceived: \"Loading\"\nTimeout:  2000ms\n\nCall log:\n  - 12 × locator resolved\n    at <root>/tests/edge.spec.ts:10:5",
+              "location": {
+                "file": "tests/edge.spec.ts",
+                "line": 10,
+                "column": 5
+              }
+            }
+          ],
+          "attachments": [],
+          "concurrent": [
+            {
+              "testId": "peer-unrelated-test-one",
+              "title": "unrelated test one",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": []
+            },
+            {
+              "testId": "peer-unrelated-test-two",
+              "title": "unrelated test two",
+              "file": "tests/peer.spec.ts",
+              "project": "chromium",
+              "retry": 0,
+              "status": "passed",
+              "workerIndex": 9,
+              "parallelIndex": 1,
+              "overlapMs": 1200,
+              "sharedResources": []
+            }
+          ],
+          "concurrentTruncated": false
+        },
+        {
+          "retry": 1,
+          "status": "passed",
+          "workerIndex": 1,
+          "parallelIndex": 0,
+          "startTime": "2026-09-25T10:00:10.000Z",
+          "durationMs": 1000,
+          "errors": [],
+          "attachments": [],
+          "concurrent": [],
+          "concurrentTruncated": false
+        }
+      ]
+    }
+  ]
+}
