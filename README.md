@@ -4,11 +4,11 @@ Playwright tells you a test is flaky. FlakeScope tells you why, in the pull requ
 
 FlakeScope has three parts:
 
-- **[`@flakescope/reporter`](packages/reporter)**: a Playwright reporter that writes `flake-report.json` at the
+- **[`@codept/flakescope-reporter`](packages/reporter)**: a Playwright reporter that writes `flake-report.json` at the
   end of every run. For each flaky or failing test it records every attempt: status, worker, timing, redacted
   errors, attachment paths, the tests that ran at the same time on other workers, and the shared resources each
   test declared.
-- **[`@flakescope/classify`](packages/classify)**: a deterministic classifier that reads the report and gives each
+- **[`@codept/flakescope-classify`](packages/classify)**: a deterministic classifier that reads the report and gives each
   flaky or failing test one verdict, a confidence level, and the evidence behind it. The same report always
   produces the same result. It uses no AI and makes no network calls.
 - **The GitHub Action** (`progamer/flake-scope@v0`): finds the reports, classifies them, and posts one pull
@@ -36,9 +36,9 @@ Requirements: Node.js 20 or later, `@playwright/test` 1.40 or later.
 **1. Install the reporter.**
 
 ```sh
-npm install --save-dev @flakescope/reporter
-# or: pnpm add -D @flakescope/reporter
-# or: yarn add -D @flakescope/reporter
+npm install --save-dev @codept/flakescope-reporter
+# or: pnpm add -D @codept/flakescope-reporter
+# or: yarn add -D @codept/flakescope-reporter
 ```
 
 **2. Add it to your Playwright config**, next to the reporters you already use:
@@ -49,7 +49,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   retries: process.env.CI ? 2 : 0,
-  reporter: [['list'], ['html'], ['@flakescope/reporter']],
+  reporter: [['list'], ['html'], ['@codept/flakescope-reporter']],
   // ...
 });
 ```
@@ -177,7 +177,7 @@ handle unusual secret formats.
 ## Reporter options
 
 ```ts
-reporter: [['@flakescope/reporter', { outputFile: 'reports/flake-report.json', redactEnv: ['TEST_USER_EMAIL'] }]],
+reporter: [['@codept/flakescope-reporter', { outputFile: 'reports/flake-report.json', redactEnv: ['TEST_USER_EMAIL'] }]],
 ```
 
 | Option           | Type                   | Default                                         | Description                                                                                            |

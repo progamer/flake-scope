@@ -1,5 +1,5 @@
 {
-  "name": "@flakescope/action",
+  "name": "@codept/flakescope-action",
   "version": "0.0.0",
   "private": true,
   "description": "GitHub Action that classifies Playwright flaky and failing tests and explains them on the pull request.",
@@ -13,8 +13,8 @@
   "dependencies": {
     "@actions/core": "3.0.1",
     "@actions/github": "9.1.1",
-    "@flakescope/classify": "workspace:*",
-    "@flakescope/reporter": "workspace:*"
+    "@codept/flakescope-classify": "workspace:*",
+    "@codept/flakescope-reporter": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.13.6",

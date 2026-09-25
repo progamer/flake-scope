@@ -1,4 +1,4 @@
-import type { FlakeReport, ReportedTest } from '@flakescope/reporter';
+import type { FlakeReport, ReportedTest } from '@codept/flakescope-reporter';
 import { describeError } from './errors.js';
 import { envRule, isFailed, raceRule, regressionRule } from './rules.js';
 import {

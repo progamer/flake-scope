@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generator": {
-    "name": "@flakescope/reporter",
+    "name": "@codept/flakescope-reporter",
     "version": "0.0.0"
   },
   "run": {

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { FlakeReport } from '@flakescope/reporter';
+import type { FlakeReport } from '@codept/flakescope-reporter';
 import { describe, expect, it } from 'vitest';
 import { classify } from '../src/index.js';
 

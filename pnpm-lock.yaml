@@ -187,10 +187,10 @@ importers:
       '@actions/github':
         specifier: 9.1.1
         version: 9.1.1
-      '@flakescope/classify':
+      '@codept/flakescope-classify':
         specifier: workspace:*
         version: link:../packages/classify
-      '@flakescope/reporter':
+      '@codept/flakescope-reporter':
         specifier: workspace:*
         version: link:../packages/reporter
     devDependencies:
@@ -209,7 +209,7 @@ importers:
 
   examples/demo:
     devDependencies:
-      '@flakescope/reporter':
+      '@codept/flakescope-reporter':
         specifier: workspace:*
         version: link:../../packages/reporter
       '@playwright/test':
@@ -221,7 +221,7 @@ importers:
 
   packages/classify:
     dependencies:
-      '@flakescope/reporter':
+      '@codept/flakescope-reporter':
         specifier: workspace:*
         version: link:../reporter
     devDependencies:

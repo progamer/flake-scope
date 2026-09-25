@@ -1,4 +1,4 @@
-import type { Attempt, ReportedError } from '@flakescope/reporter';
+import type { Attempt, ReportedError } from '@codept/flakescope-reporter';
 import { describe, expect, it } from 'vitest';
 import { attemptKind, errorKind, fingerprint, messageKey, normalize } from '../src/errors.js';
 

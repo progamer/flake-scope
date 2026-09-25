@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { FlakeReport } from '@flakescope/reporter';
+import type { FlakeReport } from '@codept/flakescope-reporter';
 import { mergeReports } from '../src/merge.js';
 import { COMMENT_MARKER, escapeHtml, escapeMarkdown, inlineCode, render } from '../src/render.js';
 import { loadFixture } from './helpers.js';

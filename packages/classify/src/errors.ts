@@ -1,4 +1,4 @@
-import type { Attempt, ReportedError } from '@flakescope/reporter';
+import type { Attempt, ReportedError } from '@codept/flakescope-reporter';
 
 export type ErrorKind = 'timeout' | 'connection' | 'crash' | 'resource' | 'other';
 

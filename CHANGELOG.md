@@ -11,7 +11,7 @@ First public release.
 
 ### Added
 
-- `@flakescope/reporter`: a Playwright reporter that writes `flake-report.json` at the end of every run.
+- `@codept/flakescope-reporter`: a Playwright reporter that writes `flake-report.json` at the end of every run.
   - Records every attempt of each flaky or failing test: status, worker, timing, errors, and attachment paths.
   - Records the attempts of other tests that overlapped each attempt on other workers, and the resources they
     share.
@@ -21,7 +21,7 @@ First public release.
   - Redacts credentials, tokens, secret-looking environment variables, and absolute paths from error messages,
     stacks, and annotations. Never records `storageState` contents, attachment bodies, or stdout/stderr.
   - Options: `outputFile`, `redactEnv`, `redactPatterns`, `quiet`; environment variable `FLAKESCOPE_OUTPUT_FILE`.
-- `@flakescope/classify`: deterministic classification of flaky and failing tests into `likely-regression`,
+- `@codept/flakescope-classify`: deterministic classification of flaky and failing tests into `likely-regression`,
   `shared-state-race`, `env-resource`, or `known-intermittent`, with a confidence level, evidence, other observed
   signals, and the list of checks that ran.
 - GitHub Action (`progamer/flake-scope@v0`): finds and merges reports, classifies them, writes one pull request

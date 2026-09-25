@@ -7,7 +7,7 @@
     "test:ci": "playwright test --workers=4 --retries=2"
   },
   "devDependencies": {
-    "@flakescope/reporter": "workspace:*",
+    "@codept/flakescope-reporter": "workspace:*",
     "@playwright/test": "1.63.0",
     "@types/node": "^24.13.6"
   }

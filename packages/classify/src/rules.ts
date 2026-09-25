@@ -1,4 +1,4 @@
-import type { Attempt, ReportedTest } from '@flakescope/reporter';
+import type { Attempt, ReportedTest } from '@codept/flakescope-reporter';
 import { attemptFingerprint, attemptKind, describeError, messageKey, type ErrorKind } from './errors.js';
 import type { RuleResult, Signal, Strength } from './types.js';
 

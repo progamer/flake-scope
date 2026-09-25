@@ -1,8 +1,8 @@
-# @flakescope/classify
+# @codept/flakescope-classify
 
 Deterministic classification of Playwright flaky and failing tests from a `flake-report.json`.
 
-It reads a report written by [`@flakescope/reporter`](https://www.npmjs.com/package/@flakescope/reporter) and
+It reads a report written by [`@codept/flakescope-reporter`](https://www.npmjs.com/package/@codept/flakescope-reporter) and
 gives each flaky or failing test one verdict, a confidence level, and the evidence behind it. The same report
 always produces the same result. It uses no AI and makes no network calls.
 
@@ -12,7 +12,7 @@ request comment. Use the package directly to classify reports in your own script
 ## Install
 
 ```sh
-npm install @flakescope/classify
+npm install @codept/flakescope-classify
 ```
 
 Requires Node.js 20 or later. The package is ESM only.
@@ -21,8 +21,8 @@ Requires Node.js 20 or later. The package is ESM only.
 
 ```ts
 import { readFile } from 'node:fs/promises';
-import { classify } from '@flakescope/classify';
-import type { FlakeReport } from '@flakescope/reporter';
+import { classify } from '@codept/flakescope-classify';
+import type { FlakeReport } from '@codept/flakescope-reporter';
 
 const report = JSON.parse(await readFile('test-results/flake-report.json', 'utf8')) as FlakeReport;
 const result = classify(report);

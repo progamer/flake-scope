@@ -9,7 +9,7 @@ export default defineConfig({
   retries: 2,
   timeout: 5_000,
   expect: { timeout: 2_000 },
-  reporter: [['list'], ['@flakescope/reporter']],
+  reporter: [['list'], ['@codept/flakescope-reporter']],
   use: {
     baseURL: `http://localhost:${PORT}`,
     trace: 'retain-on-failure',

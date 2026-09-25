@@ -1,4 +1,4 @@
-import type { Confidence, Verdict } from '@flakescope/classify';
+import type { Confidence, Verdict } from '@codept/flakescope-classify';
 import { VERDICTS, type MergedClassification, type MergedResult, type ReportSource } from './merge.js';
 
 export const COMMENT_MARKER = '<!-- flakescope:pr-comment -->';

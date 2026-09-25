@@ -34388,7 +34388,7 @@ function parseReport(text, file) {
     if (version !== SUPPORTED_REPORT_SCHEMA_VERSION) {
         return {
             error: `${file} has schemaVersion ${String(version)}, but this action reads version ` +
-                `${SUPPORTED_REPORT_SCHEMA_VERSION}. Use matching versions of @flakescope/reporter and the action. Skipping it.`,
+                `${SUPPORTED_REPORT_SCHEMA_VERSION}. Use matching versions of @codept/flakescope-reporter and the action. Skipping it.`,
         };
     }
     const report = data;
@@ -34828,7 +34828,7 @@ async function run() {
     if (files.length === 0) {
         setCountOutputs(null);
         core.warning(`No flake-report.json found for ${patterns.map((p) => `"${p}"`).join(', ')}. ` +
-            'Add @flakescope/reporter to the reporters in playwright.config and run this step after the tests ' +
+            'Add @codept/flakescope-reporter to the reporters in playwright.config and run this step after the tests ' +
             '(with "if: always()"), or set "report-path" to where the report is written. ' +
             'For sharded runs, download the report artifacts from each shard first.');
         return;

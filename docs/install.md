@@ -12,14 +12,14 @@ Requirements:
 ## 1. Install the reporter
 
 ```sh
-npm install --save-dev @flakescope/reporter
+npm install --save-dev @codept/flakescope-reporter
 ```
 
-With other package managers: `pnpm add -D @flakescope/reporter` or `yarn add -D @flakescope/reporter`.
+With other package managers: `pnpm add -D @codept/flakescope-reporter` or `yarn add -D @codept/flakescope-reporter`.
 
 ## 2. Add the reporter to your Playwright config
 
-Add `['@flakescope/reporter']` to the `reporter` array. Keep the reporters you already use; FlakeScope does not
+Add `['@codept/flakescope-reporter']` to the `reporter` array. Keep the reporters you already use; FlakeScope does not
 print test results, so it works alongside `list`, `dot`, `html`, `github`, and others.
 
 ```ts
@@ -28,13 +28,13 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   retries: process.env.CI ? 2 : 0,
-  reporter: [['list'], ['html', { open: 'never' }], ['@flakescope/reporter']],
+  reporter: [['list'], ['html', { open: 'never' }], ['@codept/flakescope-reporter']],
   // ...
 });
 ```
 
 If your config currently uses a single string, such as `reporter: 'html'`, change it to an array:
-`reporter: [['html'], ['@flakescope/reporter']]`.
+`reporter: [['html'], ['@codept/flakescope-reporter']]`.
 
 Check your settings:
 
@@ -219,7 +219,7 @@ Notes:
 ### "No report found" / the Action finds no reports
 
 1. **Check that the reporter ran.** Look for the `FlakeScope: … → …/flake-report.json` line at the end of the test
-   step's log. If it is missing, `@flakescope/reporter` is not in the `reporter` array of the config that ran, or
+   step's log. If it is missing, `@codept/flakescope-reporter` is not in the `reporter` array of the config that ran, or
    `quiet: true` is set. If the log shows `FlakeScope: failed to write report: …`, the message says why.
 2. **Check that the test step reached the end.** If Playwright stops before running any test (for example,
    because of a config error), no report is written.
@@ -249,7 +249,7 @@ in your config (globally or on the first project), the report moves with it:
 ```ts
 export default defineConfig({
   outputDir: 'e2e-results',
-  reporter: [['list'], ['@flakescope/reporter']], // writes e2e-results/flake-report.json
+  reporter: [['list'], ['@codept/flakescope-reporter']], // writes e2e-results/flake-report.json
 });
 ```
 
@@ -257,7 +257,7 @@ To put the report in a fixed place, set `outputFile`, or the `FLAKESCOPE_OUTPUT_
 relative path is resolved against the directory of the Playwright config file:
 
 ```ts
-reporter: [['list'], ['@flakescope/reporter', { outputFile: 'reports/flake-report.json' }]],
+reporter: [['list'], ['@codept/flakescope-reporter', { outputFile: 'reports/flake-report.json' }]],
 ```
 
 The default `report-path` glob (`**/flake-report.json`) still finds the report as long as it is inside the
@@ -267,4 +267,4 @@ setup, update the artifact upload `path` as well.
 ### "Unsupported flake-report schemaVersion"
 
 The classifier reads `flake-report.json` schemaVersion 1. This error means the report was written by a reporter
-version with a different schema. Use `@flakescope/reporter` and the Action from the same release line.
+version with a different schema. Use `@codept/flakescope-reporter` and the Action from the same release line.

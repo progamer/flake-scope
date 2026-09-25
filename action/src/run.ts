@@ -66,7 +66,7 @@ export async function run(): Promise<void> {
     setCountOutputs(null);
     core.warning(
       `No flake-report.json found for ${patterns.map((p) => `"${p}"`).join(', ')}. ` +
-        'Add @flakescope/reporter to the reporters in playwright.config and run this step after the tests ' +
+        'Add @codept/flakescope-reporter to the reporters in playwright.config and run this step after the tests ' +
         '(with "if: always()"), or set "report-path" to where the report is written. ' +
         'For sharded runs, download the report artifacts from each shard first.',
     );

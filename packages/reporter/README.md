@@ -1,11 +1,11 @@
-# @flakescope/reporter
+# @codept/flakescope-reporter
 
 A Playwright reporter that records the evidence needed to explain why a test is flaky.
 
 At the end of every run it writes `flake-report.json`. For each flaky or failing test it records every attempt:
 status, worker, timing, redacted errors, attachment paths, the tests that ran at the same time on other workers,
 and the shared resources each test declared. The report is read by
-[`@flakescope/classify`](https://www.npmjs.com/package/@flakescope/classify) and the
+[`@codept/flakescope-classify`](https://www.npmjs.com/package/@codept/flakescope-classify) and the
 [FlakeScope GitHub Action](https://github.com/progamer/flake-scope#readme), which explain each flaky test in the
 pull request.
 
@@ -14,7 +14,7 @@ The reporter makes no network calls and never fails your test run.
 ## Install
 
 ```sh
-npm install --save-dev @flakescope/reporter
+npm install --save-dev @codept/flakescope-reporter
 ```
 
 Requires Node.js 20 or later and `@playwright/test` 1.40 or later.
@@ -28,7 +28,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   retries: process.env.CI ? 2 : 0,
-  reporter: [['list'], ['@flakescope/reporter']],
+  reporter: [['list'], ['@codept/flakescope-reporter']],
 });
 ```
 
@@ -46,7 +46,7 @@ A test only counts as flaky when it fails and then passes on a retry, so set `re
 ```ts
 reporter: [
   ['list'],
-  ['@flakescope/reporter', { outputFile: 'reports/flake-report.json', redactEnv: ['TEST_USER_EMAIL'] }],
+  ['@codept/flakescope-reporter', { outputFile: 'reports/flake-report.json', redactEnv: ['TEST_USER_EMAIL'] }],
 ],
 ```
 
@@ -104,7 +104,7 @@ import FlakeScopeReporter, {
   DEFAULT_REPORT_NAME, // 'flake-report.json'
   createRedactor,
   stripAnsi,
-} from '@flakescope/reporter';
+} from '@codept/flakescope-reporter';
 ```
 
 All report types (`FlakeReport`, `ReportedTest`, `Attempt`, and the rest) are exported for tools that read the

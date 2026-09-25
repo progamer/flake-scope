@@ -1,5 +1,10 @@
-import { classify, SUPPORTED_REPORT_SCHEMA_VERSION, type Classification, type Verdict } from '@flakescope/classify';
-import type { FlakeReport } from '@flakescope/reporter';
+import {
+  classify,
+  SUPPORTED_REPORT_SCHEMA_VERSION,
+  type Classification,
+  type Verdict,
+} from '@codept/flakescope-classify';
+import type { FlakeReport } from '@codept/flakescope-reporter';
 
 /** Format of the merged result written to `result-path`. Additive changes keep the version. */
 export const RESULT_SCHEMA_VERSION = 1 as const;
@@ -63,7 +68,7 @@ export function parseReport(text: string, file: string): { report: FlakeReport }
     return {
       error:
         `${file} has schemaVersion ${String(version)}, but this action reads version ` +
-        `${SUPPORTED_REPORT_SCHEMA_VERSION}. Use matching versions of @flakescope/reporter and the action. Skipping it.`,
+        `${SUPPORTED_REPORT_SCHEMA_VERSION}. Use matching versions of @codept/flakescope-reporter and the action. Skipping it.`,
     };
   }
   const report = data as FlakeReport;

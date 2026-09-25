@@ -1,4 +1,4 @@
-import type { FlakeReport, TestOutcome } from '@flakescope/reporter';
+import type { FlakeReport, TestOutcome } from '@codept/flakescope-reporter';
 
 /** Result format. Same compatibility rule as flake-report.json: additive changes keep the version. */
 export const CLASSIFICATION_SCHEMA_VERSION = 1 as const;

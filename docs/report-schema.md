@@ -1,6 +1,6 @@
 # `flake-report.json` (schemaVersion 1)
 
-Written by `@flakescope/reporter` at the end of every Playwright run. It is a public contract.
+Written by `@codept/flakescope-reporter` at the end of every Playwright run. It is a public contract.
 The TypeScript source of truth is [`packages/reporter/src/schema.ts`](../packages/reporter/src/schema.ts).
 
 ## Versioning

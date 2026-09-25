@@ -1,11 +1,11 @@
 # Classification
 
-`@flakescope/classify` reads a `flake-report.json` and gives each flaky or failing test one verdict.
+`@codept/flakescope-classify` reads a `flake-report.json` and gives each flaky or failing test one verdict.
 It is deterministic: the same report always produces the same result. There are no heuristics you can't read in
 [`rules.ts`](../packages/classify/src/rules.ts), and no network calls or AI.
 
 ```ts
-import { classify } from '@flakescope/classify';
+import { classify } from '@codept/flakescope-classify';
 const result = classify(report); // ClassificationResult
 ```
 

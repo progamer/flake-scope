@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { FlakeReport } from '@flakescope/reporter';
+import type { FlakeReport } from '@codept/flakescope-reporter';
 
 export const fixturesDir = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
