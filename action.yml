@@ -1,0 +1,47 @@
+name: FlakeScope
+description: Explain why Playwright tests are flaky, in the pull request, with evidence.
+author: progamer
+branding:
+  icon: search
+  color: purple
+
+inputs:
+  report-path:
+    description: >-
+      Glob(s) for flake-report.json files, one per line. node_modules is always skipped.
+      Several matches (one per shard) are merged into one result.
+    required: false
+    default: '**/flake-report.json'
+  github-token:
+    description: Token used to create or update the pull request comment. Needs pull-requests write.
+    required: false
+    default: ${{ github.token }}
+  comment:
+    description: >-
+      auto: comment only when there are findings, but always update an existing FlakeScope comment.
+      always: create or update the comment even with no findings.
+      never: job summary only.
+    required: false
+    default: auto
+  fail-on-regression:
+    description: Fail the step when a likely-regression verdict has high or medium confidence.
+    required: false
+    default: 'false'
+
+outputs:
+  flaky:
+    description: Number of flaky tests (failed, then passed on retry).
+  failed:
+    description: Number of tests that failed on every attempt (unexpected).
+  classified:
+    description: Number of tests that received a verdict.
+  regressions:
+    description: Number of likely-regression verdicts, at any confidence.
+  comment-url:
+    description: URL of the created or updated pull request comment. Empty when there is none.
+  result-path:
+    description: Path of the merged classification JSON (flakescope-result.json in RUNNER_TEMP).
+
+runs:
+  using: node24
+  main: action/dist/index.js

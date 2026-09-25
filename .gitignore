@@ -5,6 +5,7 @@
 # Node / build
 node_modules/
 dist/
+!action/dist/
 *.tsbuildinfo
 coverage/
 

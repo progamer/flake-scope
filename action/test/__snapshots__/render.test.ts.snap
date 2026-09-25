@@ -1,0 +1,578 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`render > matches the snapshot for every fixture > demo-linux-ci.report.json 1`] = `
+"<!-- flakescope:pr-comment -->
+### FlakeScope
+
+**3 flaky · 0 failed · 8 tests · 4 workers**
+
+🟠 1 shared-state race · 🟡 1 env / resource · ⚪ 1 known intermittent
+
+| Verdict | Test | Confidence |
+| --- | --- | --- |
+| 🟠 Shared-state race | renames the profile to Alice B<br>\`tests/profile-b.spec.ts:6\` · chromium-alice | high |
+| 🟡 Env / resource | dashboard loads<br>\`tests/dashboard.spec.ts:5\` · chromium | high |
+| ⚪ Known intermittent | search results are sorted<br>\`tests/search.spec.ts:5\` · chromium | low |
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (high): renames the profile to Alice B</summary>
+
+\`tests/profile-b.spec.ts:6\` · project \`chromium-alice\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 7) overlapped "renames the profile to Alice A" (tests/profile-a.spec.ts, worker 6, passed) for 2405 ms; both use account:alice, storageState:.auth/alice.json.
+- Attempt 1 passed with no concurrent test sharing a resource.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:alice, storageState:.auth/alice.json).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/test-failed-1.png\`
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/trace.zip\`
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): dashboard loads</summary>
+
+\`tests/dashboard.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with a timeout: "Test timeout of 5000ms exceeded.".
+- Attempt 0 took 8497 ms; attempt 1 passed in 383 ms (22.2x faster). A slow first attempt that times out suggests a cold start or a busy runner.
+
+**Also observed**
+
+- shared-state-race (low): Failed attempt ran alongside other tests on other workers and attempt 1 passed with nothing running concurrently, but no shared resource was declared.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (5 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+
+- \`test-results/dashboard-dashboard-loads-chromium/test-failed-1.png\`
+- \`test-results/dashboard-dashboard-loads-chromium/trace.zip\`
+
+</details>
+
+<details>
+<summary>⚪ <b>Known intermittent</b> (low): search results are sorted</summary>
+
+\`tests/search.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with "Error: expect(locator).toHaveText(expected) failed" at tests/search.spec.ts:7.
+- Attempt 1 passed.
+- No shared resource, environment error, or consistent failure pattern explains the difference.
+
+**Also observed**
+
+- env-resource (low): Attempt 0 took 2623 ms; attempt 1 passed in 351 ms (7.5x faster). Weak on its own: a failed assertion waits for its timeout, so failures run longer.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (3 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+
+- \`test-results/search-search-results-are-sorted-chromium/test-failed-1.png\`
+- \`test-results/search-search-results-are-sorted-chromium/trace.zip\`
+
+</details>
+
+<sub>Commit \`ec98d6b\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+"
+`;
+
+exports[`render > matches the snapshot for every fixture > demo-regression.report.json 1`] = `
+"<!-- flakescope:pr-comment -->
+### FlakeScope
+
+**3 flaky · 1 failed · 8 tests · 4 workers**
+
+🔴 1 likely regression · 🟠 1 shared-state race · 🟡 1 env / resource · ⚪ 1 known intermittent
+
+| Verdict | Test | Confidence |
+| --- | --- | --- |
+| 🔴 Likely regression | cart total includes every item<br>\`tests/checkout.spec.ts:5\` · chromium | high |
+| 🟠 Shared-state race | renames the profile to Alice B<br>\`tests/profile-b.spec.ts:6\` · chromium-alice | high |
+| 🟡 Env / resource | dashboard loads<br>\`tests/dashboard.spec.ts:5\` · chromium | high |
+| ⚪ Known intermittent | search results are sorted<br>\`tests/search.spec.ts:5\` · chromium | low |
+
+<details>
+<summary>🔴 <b>Likely regression</b> (high): cart total includes every item</summary>
+
+\`tests/checkout.spec.ts:5\` · project \`chromium\` · failed on every attempt
+
+**Evidence**
+
+- All 3 attempts failed with "Error: expect(received).toEqual(expected) // deep equality" at tests/checkout.spec.ts:7.
+- The full error message was identical on every attempt.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (6 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/checkout-cart-total-includes-every-item-chromium/trace.zip\`
+- \`test-results/checkout-cart-total-includes-every-item-chromium-retry1/trace.zip\`
+- \`test-results/checkout-cart-total-includes-every-item-chromium-retry2/trace.zip\`
+
+</details>
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (high): renames the profile to Alice B</summary>
+
+\`tests/profile-b.spec.ts:6\` · project \`chromium-alice\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 10) overlapped "renames the profile to Alice A" (tests/profile-a.spec.ts, worker 9, passed) for 1908 ms; both use account:alice, storageState:.auth/alice.json.
+- Attempt 1 passed with no concurrent test sharing a resource.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:alice, storageState:.auth/alice.json).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/test-failed-1.png\`
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/trace.zip\`
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): dashboard loads</summary>
+
+\`tests/dashboard.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with a timeout: "Test timeout of 5000ms exceeded.".
+- Attempt 0 took 8251 ms; attempt 1 passed in 231 ms (35.7x faster). A slow first attempt that times out suggests a cold start or a busy runner.
+
+**Also observed**
+
+- shared-state-race (low): Failed attempt ran alongside other tests on other workers and attempt 1 passed with nothing running concurrently, but no shared resource was declared.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (8 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/dashboard-dashboard-loads-chromium/test-failed-1.png\`
+- \`test-results/dashboard-dashboard-loads-chromium/trace.zip\`
+
+</details>
+
+<details>
+<summary>⚪ <b>Known intermittent</b> (low): search results are sorted</summary>
+
+\`tests/search.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with "Error: expect(locator).toHaveText(expected) failed" at tests/search.spec.ts:7.
+- Attempt 1 passed.
+- No shared resource, environment error, or consistent failure pattern explains the difference.
+
+**Also observed**
+
+- env-resource (low): Attempt 0 took 2196 ms; attempt 1 passed in 162 ms (13.6x faster). Weak on its own: a failed assertion waits for its timeout, so failures run longer.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (2 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/search-search-results-are-sorted-chromium/test-failed-1.png\`
+- \`test-results/search-search-results-are-sorted-chromium/trace.zip\`
+
+</details>
+
+<sub>Commit \`156a938\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+"
+`;
+
+exports[`render > matches the snapshot for every fixture > demo-windows-local.report.json 1`] = `
+"<!-- flakescope:pr-comment -->
+### FlakeScope
+
+**3 flaky · 0 failed · 8 tests · 4 workers**
+
+🟠 1 shared-state race · 🟡 1 env / resource · ⚪ 1 known intermittent
+
+| Verdict | Test | Confidence |
+| --- | --- | --- |
+| 🟠 Shared-state race | renames the profile to Alice B<br>\`tests/profile-b.spec.ts:6\` · chromium-alice | high |
+| 🟡 Env / resource | dashboard loads<br>\`tests/dashboard.spec.ts:5\` · chromium | high |
+| ⚪ Known intermittent | search results are sorted<br>\`tests/search.spec.ts:5\` · chromium | low |
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (high): renames the profile to Alice B</summary>
+
+\`tests/profile-b.spec.ts:6\` · project \`chromium-alice\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 7) overlapped "renames the profile to Alice A" (tests/profile-a.spec.ts, worker 6, passed) for 1887 ms; both use account:alice, storageState:.auth/alice.json.
+- Attempt 1 passed with no concurrent test sharing a resource.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:alice, storageState:.auth/alice.json).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/test-failed-1.png\`
+- \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/trace.zip\`
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): dashboard loads</summary>
+
+\`tests/dashboard.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with a timeout: "Test timeout of 5000ms exceeded.".
+- Attempt 0 took 8288 ms; attempt 1 passed in 213 ms (38.9x faster). A slow first attempt that times out suggests a cold start or a busy runner.
+
+**Also observed**
+
+- shared-state-race (low): Failed attempt ran alongside other tests on other workers and attempt 1 passed with nothing running concurrently, but no shared resource was declared.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (6 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/dashboard-dashboard-loads-chromium/test-failed-1.png\`
+- \`test-results/dashboard-dashboard-loads-chromium/trace.zip\`
+
+</details>
+
+<details>
+<summary>⚪ <b>Known intermittent</b> (low): search results are sorted</summary>
+
+\`tests/search.spec.ts:5\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with "Error: expect(locator).toHaveText(expected) failed" at tests/search.spec.ts:7.
+- Attempt 1 passed.
+- No shared resource, environment error, or consistent failure pattern explains the difference.
+
+**Also observed**
+
+- env-resource (low): Attempt 0 took 2289 ms; attempt 1 passed in 174 ms (13.2x faster). Weak on its own: a failed assertion waits for its timeout, so failures run longer.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (4 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+**Attachments**
+
+- \`test-results/search-search-results-are-sorted-chromium/test-failed-1.png\`
+- \`test-results/search-search-results-are-sorted-chromium/trace.zip\`
+
+</details>
+
+<sub>Commit \`e173ae8\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+"
+`;
+
+exports[`render > matches the snapshot for every fixture > edge-cases.report.json 1`] = `
+"<!-- flakescope:pr-comment -->
+### FlakeScope
+
+**8 flaky · 4 failed · 20 tests · 4 workers**
+
+🔴 3 likely regression · 🟠 3 shared-state race · 🟡 4 env / resource · ⚪ 2 known intermittent
+
+| Verdict | Test | Confidence |
+| --- | --- | --- |
+| 🔴 Likely regression | consistent timeout on every attempt<br>\`tests/edge.spec.ts:10\` · chromium | medium |
+| 🔴 Likely regression | regression with different errors<br>\`tests/edge.spec.ts:10\` · chromium | low |
+| 🔴 Likely regression | regression without retries<br>\`tests/edge.spec.ts:10\` · chromium | low |
+| 🟠 Shared-state race | timeout during explicit race<br>\`tests/edge.spec.ts:10\` · chromium | high |
+| 🟠 Shared-state race | storageState-only race<br>\`tests/edge.spec.ts:10\` · chromium | medium |
+| 🟠 Shared-state race | race weakened by passing overlap<br>\`tests/edge.spec.ts:10\` · chromium | medium |
+| 🟡 Env / resource | browser crash then pass<br>\`tests/edge.spec.ts:10\` · chromium | high |
+| 🟡 Env / resource | connection refused then pass<br>\`tests/edge.spec.ts:10\` · chromium | high |
+| 🟡 Env / resource | out of memory then pass<br>\`tests/edge.spec.ts:10\` · chromium | high |
+| 🟡 Env / resource | connection refused on every attempt<br>\`tests/edge.spec.ts:10\` · chromium | high |
+| ⚪ Known intermittent | slow first attempt without timeout<br>\`tests/edge.spec.ts:10\` · chromium | low |
+| ⚪ Known intermittent | failed alongside others, passed alone<br>\`tests/edge.spec.ts:10\` · chromium | low |
+
+<details>
+<summary>🔴 <b>Likely regression</b> (medium): consistent timeout on every attempt</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · failed on every attempt
+
+**Evidence**
+
+- All 3 attempts failed with "Test timeout of 5000ms exceeded." at tests/edge.spec.ts:10.
+- The full error message was identical on every attempt.
+- The error is a timeout, which can also come from a slow environment.
+
+**Also observed**
+
+- env-resource (medium): Attempt 0 failed with a timeout: "Test timeout of 5000ms exceeded." at tests/edge.spec.ts:10. Attempt 1 failed with a timeout: "Test timeout of 5000ms exceeded." at tests/edge.spec.ts:10. Attempt 2 failed with a timeout: "Test timeout of 5000ms exceeded." at tests/edge.spec.ts:10.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🔴 <b>Likely regression</b> (low): regression with different errors</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · failed on every attempt
+
+**Evidence**
+
+- All 3 attempts failed, but with 3 different errors.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🔴 <b>Likely regression</b> (low): regression without retries</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · failed on every attempt
+
+**Evidence**
+
+- The only attempt failed with "Error: expect(locator).toHaveText(expected) failed" at tests/edge.spec.ts:10.
+- Only one attempt ran (retries: 0), so a regression cannot be told apart from a flake.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (high): timeout during explicit race</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 0) overlapped "deletes bob's orders" (tests/peer.spec.ts, worker 9, passed) for 1200 ms; both use account:bob.
+- Attempt 1 passed with no concurrent test sharing a resource.
+
+**Also observed**
+
+- env-resource (medium): Attempt 0 failed with a timeout: "Test timeout of 5000ms exceeded." at tests/edge.spec.ts:10.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:bob).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (medium): storageState-only race</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 0) overlapped "edits the shared user" (tests/peer.spec.ts, worker 9, passed) for 1200 ms; both use storageState:.auth/user.json.
+- The only shared resource is the project storageState; many suites share one login, so this is weaker evidence than a declared flakescope:resource.
+- Attempt 1 passed with no concurrent test sharing a resource.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (storageState:.auth/user.json).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟠 <b>Shared-state race</b> (medium): race weakened by passing overlap</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 (worker 0) overlapped "empties the cart" (tests/peer.spec.ts, worker 9, passed) for 1200 ms; both use account:dana.
+- Attempt 1 passed even though it overlapped 1 test sharing a resource, which weakens this signal.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:dana).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): browser crash then pass</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with a browser/worker crash: "Error: page.goto: Target page, context or browser has been closed" at tests/edge.spec.ts:10.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): connection refused then pass</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with a connection error: "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4173" at tests/edge.spec.ts:10.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): out of memory then pass</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with resource exhaustion: "FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory" at tests/edge.spec.ts:10.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>🟡 <b>Env / resource</b> (high): connection refused on every attempt</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · failed on every attempt
+
+**Evidence**
+
+- Attempt 0 failed with a connection error: "Error: connect ECONNREFUSED 127.0.0.1:5432" at tests/edge.spec.ts:10.
+- Attempt 1 failed with a connection error: "Error: connect ECONNREFUSED 127.0.0.1:5432" at tests/edge.spec.ts:10.
+- Attempt 2 failed with a connection error: "Error: connect ECONNREFUSED 127.0.0.1:5432" at tests/edge.spec.ts:10.
+
+**Also observed**
+
+- likely-regression (low): All 3 attempts failed with "Error: connect ECONNREFUSED 127.0.0.1:5432" at tests/edge.spec.ts:10. The full error message was identical on every attempt. The error is a connection error, which points at the environment more than the code.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>⚪ <b>Known intermittent</b> (low): slow first attempt without timeout</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with "Error: expect(locator).toHaveText(expected) failed" at tests/edge.spec.ts:10.
+- Attempt 1 passed.
+- No shared resource, environment error, or consistent failure pattern explains the difference.
+
+**Also observed**
+
+- env-resource (low): Attempt 0 took 9000 ms; attempt 1 passed in 300 ms (30.0x faster). Weak on its own: a failed assertion waits for its timeout, so failures run longer.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (0 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<details>
+<summary>⚪ <b>Known intermittent</b> (low): failed alongside others, passed alone</summary>
+
+\`tests/edge.spec.ts:10\` · project \`chromium\` · flaky (passed on retry)
+
+**Evidence**
+
+- Attempt 0 failed with "Error: expect(locator).toHaveText(expected) failed" at tests/edge.spec.ts:10.
+- Attempt 1 passed.
+- No shared resource, environment error, or consistent failure pattern explains the difference.
+
+**Also observed**
+
+- shared-state-race (low): Failed attempt ran alongside other tests on other workers and attempt 1 passed with nothing running concurrently, but no shared resource was declared.
+
+**Checked**
+
+- Whether every attempt failed with the same error.
+- Concurrent tests on other workers during failed attempts (2 overlaps) for shared resources (none declared).
+- Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
+
+</details>
+
+<sub>Commit \`ec98d6b\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+"
+`;

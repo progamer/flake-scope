@@ -1,0 +1,25 @@
+{
+  "name": "@flakescope/action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GitHub Action that classifies Playwright flaky and failing tests and explains them on the pull request.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "ncc build src/main.ts -o dist --license licenses.txt",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@actions/core": "3.0.1",
+    "@actions/github": "9.1.1",
+    "@flakescope/classify": "workspace:*",
+    "@flakescope/reporter": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@vercel/ncc": "0.45.0",
+    "typescript": "^6.0.3",
+    "vitest": "5.0.1"
+  }
+}

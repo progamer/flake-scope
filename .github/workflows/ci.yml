@@ -22,9 +22,21 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
+      # The action runs from its committed bundle, so it must match the sources.
+      - name: Check action/dist is up to date
+        run: |
+          pnpm --filter @flakescope/action run build
+          git add --intent-to-add action/dist
+          git diff --exit-code --stat action/dist || {
+            echo "::error::action/dist is out of date. Run 'pnpm build' and commit action/dist."
+            exit 1
+          }
 
   demo:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -36,6 +48,10 @@ jobs:
       - run: pnpm --filter demo exec playwright install --with-deps --only-shell chromium
       # The demo is racy on purpose; flaky tests still pass, so this job stays green.
       - run: pnpm demo
+      - uses: ./
+        if: always()
+        with:
+          report-path: examples/demo/test-results/flake-report.json
       - uses: actions/upload-artifact@v7
         if: always()
         with:
