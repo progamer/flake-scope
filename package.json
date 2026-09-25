@@ -9,6 +9,15 @@
     "build": "pnpm -r --filter \"./packages/**\" run build",
     "test": "pnpm build && pnpm -r --filter \"./packages/**\" run test",
     "typecheck": "pnpm build && pnpm -r --filter \"./packages/**\" run typecheck",
-    "demo": "pnpm build && pnpm --filter demo run test:ci"
-  }
+    "demo": "pnpm build && pnpm --filter demo run test:ci",
+    "lint": "eslint . && prettier --check . --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude",
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.9",
+    "typescript-eslint": "^8.70.1"
+  },
+  "type": "module"
 }

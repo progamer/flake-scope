@@ -51,13 +51,18 @@ describe('collectGit', () => {
         GITHUB_EVENT_PATH: '/tmp/event.json',
       },
       '/repo',
-      { git: () => 'should-not-be-used', readFile: () => JSON.stringify({ pull_request: { head: { sha: 'head456' } } }) },
+      {
+        git: () => 'should-not-be-used',
+        readFile: () => JSON.stringify({ pull_request: { head: { sha: 'head456' } } }),
+      },
     );
     expect(git).toEqual({ sha: 'merge123', headSha: 'head456', branch: 'feature/x', pullRequest: 42 });
   });
 
   it('uses GitHub env on push events', () => {
-    expect(collectGit({ GITHUB_SHA: 'abc', GITHUB_REF: 'refs/heads/main', GITHUB_REF_NAME: 'main' }, '/r', noGit)).toEqual({
+    expect(
+      collectGit({ GITHUB_SHA: 'abc', GITHUB_REF: 'refs/heads/main', GITHUB_REF_NAME: 'main' }, '/r', noGit),
+    ).toEqual({
       sha: 'abc',
       headSha: null,
       branch: 'main',
@@ -72,13 +77,19 @@ describe('collectGit', () => {
   });
 
   it('reports a detached HEAD as no branch, and no git at all as nulls', () => {
-    const detached = collectGit({}, '/r', { git: (a) => (a.includes('--abbrev-ref') ? 'HEAD' : 'sha'), readFile: () => null });
+    const detached = collectGit({}, '/r', {
+      git: (a) => (a.includes('--abbrev-ref') ? 'HEAD' : 'sha'),
+      readFile: () => null,
+    });
     expect(detached.branch).toBeNull();
     expect(collectGit({}, '/r', noGit)).toEqual({ sha: null, headSha: null, branch: null, pullRequest: null });
   });
 
   it('tolerates a malformed event payload', () => {
-    const git = collectGit({ GITHUB_SHA: 's', GITHUB_EVENT_PATH: '/e' }, '/r', { git: () => null, readFile: () => '{not json' });
+    const git = collectGit({ GITHUB_SHA: 's', GITHUB_EVENT_PATH: '/e' }, '/r', {
+      git: () => null,
+      readFile: () => '{not json',
+    });
     expect(git.sha).toBe('s');
     expect(git.headSha).toBeNull();
   });

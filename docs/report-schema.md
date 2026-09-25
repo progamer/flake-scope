@@ -25,7 +25,7 @@ so usernames and home directories don't leak.
 
 - `summary` counts every test in the run.
 - `tests` lists only tests with **more than one attempt** or a final outcome of **`unexpected`**.
-- For each attempt, `concurrent` lists attempts of *other* tests that ran on a *different worker*
+- For each attempt, `concurrent` lists attempts of _other_ tests that ran on a _different worker_
   at the same time. Entries that share resources come first, and the list is capped at 50
   (`concurrentTruncated`).
 

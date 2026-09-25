@@ -11,12 +11,12 @@ const result = classify(report); // ClassificationResult
 
 ## Verdicts
 
-| Verdict | Meaning |
-|---|---|
-| `likely-regression` | Failed on every attempt, usually with the same error. Probably a real bug. |
-| `shared-state-race` | A failing attempt overlapped another test that uses the same resource. |
-| `env-resource` | Timeouts, connection errors, browser/worker crashes, out-of-memory, or a slow first attempt. |
-| `known-intermittent` | Passed on retry and nothing in the report explains why. |
+| Verdict              | Meaning                                                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| `likely-regression`  | Failed on every attempt, usually with the same error. Probably a real bug.                   |
+| `shared-state-race`  | A failing attempt overlapped another test that uses the same resource.                       |
+| `env-resource`       | Timeouts, connection errors, browser/worker crashes, out-of-memory, or a slow first attempt. |
+| `known-intermittent` | Passed on retry and nothing in the report explains why.                                      |
 
 Every classification includes:
 
@@ -35,14 +35,14 @@ Each rule emits signals with a strength: 1 = low, 2 = medium, 3 = high.
 
 This rule applies only when the test's outcome is `unexpected` and every attempt failed.
 
-| Situation | Strength |
-|---|---|
-| Same error fingerprint on 3 or more attempts | 3 |
-| Same fingerprint on 2 attempts | 2 |
-| Only one attempt (`retries: 0`) | 1 |
-| Attempts failed with different errors | 1 |
-| The shared error is a timeout | capped at 2 |
-| The shared error is a connection error, crash, or resource exhaustion | 1 |
+| Situation                                                             | Strength    |
+| --------------------------------------------------------------------- | ----------- |
+| Same error fingerprint on 3 or more attempts                          | 3           |
+| Same fingerprint on 2 attempts                                        | 2           |
+| Only one attempt (`retries: 0`)                                       | 1           |
+| Attempts failed with different errors                                 | 1           |
+| The shared error is a timeout                                         | capped at 2 |
+| The shared error is a connection error, crash, or resource exhaustion | 1           |
 
 An error **fingerprint** is the first line of the message plus its file:line:column. UUIDs, long hex strings,
 durations, ports, and numbers are normalized so that run-specific values don't split one error into many.
@@ -51,12 +51,12 @@ durations, ports, and numbers are normalized so that run-specific values don't s
 
 This rule looks at the `concurrent` attempts recorded for each failed attempt.
 
-| Situation | Strength |
-|---|---|
-| Overlapped a test sharing a declared `flakescope:resource` | 3 |
-| The only shared resource is the project `storageState` | 2 |
-| A passing attempt also overlapped a resource-sharing test | minus 1 |
-| No shared resource, but the failures ran alongside others and the pass ran alone | 1 |
+| Situation                                                                        | Strength |
+| -------------------------------------------------------------------------------- | -------- |
+| Overlapped a test sharing a declared `flakescope:resource`                       | 3        |
+| The only shared resource is the project `storageState`                           | 2        |
+| A passing attempt also overlapped a resource-sharing test                        | minus 1  |
+| No shared resource, but the failures ran alongside others and the pass ran alone | 1        |
 
 `storageState` alone is capped at medium because many suites share one login across every test.
 To get high-confidence race detection, declare what your tests share:
@@ -67,12 +67,12 @@ test.info().annotations.push({ type: 'flakescope:resource', description: 'accoun
 
 ### env-resource
 
-| Situation | Strength |
-|---|---|
-| A failed attempt hit a connection error, browser/worker crash, or resource exhaustion | 3 |
-| A failed attempt timed out | 2 |
-| Timed-out first attempt that was at least 3x slower (and 1 s slower) than the passing retry | 3 |
-| Slow first attempt that failed an assertion | 1 |
+| Situation                                                                                   | Strength |
+| ------------------------------------------------------------------------------------------- | -------- |
+| A failed attempt hit a connection error, browser/worker crash, or resource exhaustion       | 3        |
+| A failed attempt timed out                                                                  | 2        |
+| Timed-out first attempt that was at least 3x slower (and 1 s slower) than the passing retry | 3        |
+| Slow first attempt that failed an assertion                                                 | 1        |
 
 A failed assertion waits for its `expect` timeout, so it is naturally slower than a pass. For that reason,
 a slow first attempt counts only when it timed out.

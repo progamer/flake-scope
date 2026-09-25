@@ -37,7 +37,11 @@ export function regressionRule(test: ReportedTest): RuleResult {
   let strength: Strength;
 
   if (prints.size === 1) {
-    evidence.push(n > 1 ? `All ${n} attempts failed with ${describeError(first)}.` : `The only attempt failed with ${describeError(first)}.`);
+    evidence.push(
+      n > 1
+        ? `All ${n} attempts failed with ${describeError(first)}.`
+        : `The only attempt failed with ${describeError(first)}.`,
+    );
     if (new Set(attempts.map((a) => (a.errors[0] ? messageKey(a.errors[0]) : ''))).size === 1 && n > 1) {
       evidence.push('The full error message was identical on every attempt.');
     }

@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { findConcurrent, type AttemptRecord } from '../src/concurrency.js';
 
-function attempt(overrides: Partial<AttemptRecord> & Pick<AttemptRecord, 'testId' | 'startMs' | 'endMs'>): AttemptRecord {
+function attempt(
+  overrides: Partial<AttemptRecord> & Pick<AttemptRecord, 'testId' | 'startMs' | 'endMs'>,
+): AttemptRecord {
   return {
     title: overrides.testId,
     file: 'a.spec.ts',

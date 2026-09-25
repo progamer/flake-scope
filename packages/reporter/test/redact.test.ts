@@ -34,9 +34,7 @@ describe('createRedactor', () => {
   });
 
   it('redacts credentials embedded in URLs', () => {
-    expect(redact('GET https://alice:hunter2@example.com/path')).toBe(
-      `GET https://${REDACTED}@example.com/path`,
-    );
+    expect(redact('GET https://alice:hunter2@example.com/path')).toBe(`GET https://${REDACTED}@example.com/path`);
   });
 
   it('redacts secret query parameters but keeps the rest of the URL', () => {
@@ -46,9 +44,7 @@ describe('createRedactor', () => {
   });
 
   it('redacts quoted and unquoted password assignments', () => {
-    expect(redact(`{"password": "p@ss\\"word", "user": "alice"}`)).toBe(
-      `{"password": "${REDACTED}", "user": "alice"}`,
-    );
+    expect(redact(`{"password": "p@ss\\"word", "user": "alice"}`)).toBe(`{"password": "${REDACTED}", "user": "alice"}`);
     expect(redact('login password=hunter2 ok')).toBe(`login password=${REDACTED} ok`);
   });
 
