@@ -1,0 +1,21 @@
+# Tooling state
+.omc/
+.claude/settings.local.json
+
+# Node / build
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+flake-report.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
