@@ -2,3 +2,6 @@ packages:
   - packages/*
   - examples/*
   - action
+
+# Same virtual-store folder names on every OS, so the bundled action is byte-identical.
+virtualStoreDirMaxLength: 60
