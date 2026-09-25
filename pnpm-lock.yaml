@@ -178,6 +178,22 @@ importers:
         specifier: ^24.13.6
         version: 24.13.6
 
+  packages/classify:
+    dependencies:
+      '@flakescope/reporter':
+        specifier: workspace:*
+        version: link:../reporter
+    devDependencies:
+      '@types/node':
+        specifier: ^24.13.6
+        version: 24.13.6
+      typescript:
+        specifier: ^6.0.0
+        version: 6.0.3
+      vitest:
+        specifier: 5.0.1
+        version: 5.0.1(@types/node@24.13.6)(vite@8.3.1(@types/node@24.13.6))
+
   packages/reporter:
     devDependencies:
       '@playwright/test':
