@@ -35,7 +35,7 @@
     "errors": []
   },
   "git": {
-    "sha": "ec98d6baa502ad6da3d18beb62a0ec3965d1fa15",
+    "sha": "4d3c2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c",
     "headSha": null,
     "branch": "main",
     "pullRequest": null
@@ -44,11 +44,11 @@
     "provider": "github-actions",
     "runnerOs": "Linux",
     "runnerArch": "X64",
-    "repository": "progamer/flake-scope",
+    "repository": "example-org/example-app",
     "serverUrl": "https://github.com",
     "workflow": "CI",
     "jobId": "demo",
-    "runId": "36151443371",
+    "runId": "1234567890",
     "runAttempt": "1"
   },
   "host": {

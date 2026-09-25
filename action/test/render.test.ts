@@ -38,7 +38,7 @@ describe('render', () => {
   });
 
   it('has the footer with commit, Playwright version and disclaimer', () => {
-    expect(md).toContain('Commit `156a938`');
+    expect(md).toContain('Commit `9a8b7c6`');
     expect(md).toContain('Playwright 1.63.0');
     expect(md).toContain('Verdicts are hypotheses from deterministic rules, not root causes.');
   });

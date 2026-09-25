@@ -30,7 +30,7 @@ exports[`render > matches the snapshot for every fixture > demo-linux-ci.report.
 - Concurrent tests on other workers during failed attempts (1 overlap) for shared resources (account:alice, storageState:.auth/alice.json).
 - Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
 
-**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+**Attachments** ([workflow run artifacts](https://github.com/example-org/example-app/actions/runs/1234567890#artifacts))
 
 - \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/test-failed-1.png\`
 - \`test-results/profile-b-renames-the-profile-to-Alice-B-chromium-alice/trace.zip\`
@@ -57,7 +57,7 @@ exports[`render > matches the snapshot for every fixture > demo-linux-ci.report.
 - Concurrent tests on other workers during failed attempts (5 overlaps) for shared resources (none declared).
 - Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
 
-**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+**Attachments** ([workflow run artifacts](https://github.com/example-org/example-app/actions/runs/1234567890#artifacts))
 
 - \`test-results/dashboard-dashboard-loads-chromium/test-failed-1.png\`
 - \`test-results/dashboard-dashboard-loads-chromium/trace.zip\`
@@ -85,14 +85,14 @@ exports[`render > matches the snapshot for every fixture > demo-linux-ci.report.
 - Concurrent tests on other workers during failed attempts (3 overlaps) for shared resources (none declared).
 - Failed attempts for timeouts, connection errors, browser/worker crashes, and resource exhaustion; first-attempt duration vs. passing attempts (slow = 3x and +1000 ms).
 
-**Attachments** ([workflow run artifacts](https://github.com/progamer/flake-scope/actions/runs/36151443371#artifacts))
+**Attachments** ([workflow run artifacts](https://github.com/example-org/example-app/actions/runs/1234567890#artifacts))
 
 - \`test-results/search-search-results-are-sorted-chromium/test-failed-1.png\`
 - \`test-results/search-search-results-are-sorted-chromium/trace.zip\`
 
 </details>
 
-<sub>Commit \`ec98d6b\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+<sub>Commit \`4d3c2b1\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
 "
 `;
 
@@ -213,7 +213,7 @@ exports[`render > matches the snapshot for every fixture > demo-regression.repor
 
 </details>
 
-<sub>Commit \`156a938\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+<sub>Commit \`9a8b7c6\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
 "
 `;
 
@@ -309,7 +309,7 @@ exports[`render > matches the snapshot for every fixture > demo-windows-local.re
 
 </details>
 
-<sub>Commit \`e173ae8\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+<sub>Commit \`1a2b3c4\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
 "
 `;
 
@@ -573,6 +573,6 @@ exports[`render > matches the snapshot for every fixture > edge-cases.report.jso
 
 </details>
 
-<sub>Commit \`ec98d6b\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+<sub>Commit \`4d3c2b1\` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
 "
 `;

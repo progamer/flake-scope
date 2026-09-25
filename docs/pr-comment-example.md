@@ -117,4 +117,4 @@ Example FlakeScope comment rendered from the demo suite's regression run:
 
 </details>
 
-<sub>Commit `156a938` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>
+<sub>Commit `9a8b7c6` · Playwright 1.63.0. Verdicts are hypotheses from deterministic rules, not root causes.</sub>

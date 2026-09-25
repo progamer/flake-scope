@@ -35,7 +35,7 @@
     "errors": []
   },
   "git": {
-    "sha": "e173ae884d06767046e75e4502c29951a822605b",
+    "sha": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b",
     "headSha": null,
     "branch": "main",
     "pullRequest": null
@@ -44,7 +44,7 @@
   "host": {
     "platform": "win32",
     "arch": "x64",
-    "cpus": 14,
+    "cpus": 8,
     "nodeVersion": "v24.18.0"
   },
   "summary": {
