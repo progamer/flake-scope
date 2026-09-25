@@ -27,7 +27,7 @@ jobs:
         run: |
           pnpm --filter @flakescope/action run build
           git add --intent-to-add action/dist
-          git diff --exit-code --stat action/dist || {
+          git diff --exit-code action/dist || {
             echo "::error::action/dist is out of date. Run 'pnpm build' and commit action/dist."
             exit 1
           }
